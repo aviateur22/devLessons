@@ -1,0 +1,86 @@
+:root{
+
+    --title: 4rem;
+    --nav-link : 1.5rem;
+    --small-siez : 1rem;
+    --middle-size : 1.5rem;
+    --big-size : 2rem;
+    --bold : 700;
+    --black : 900;
+}
+
+/*#region NAV*/
+
+.nav{
+
+    max-width: 100%;
+    display: flex;    
+    align-items:center;    
+    background-color: brown;
+}
+
+.nav__title{
+    font-size: var(--title);
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+
+
+}
+
+.nav__list{   
+    width: 100%;    
+    display: flex;
+    align-items:center;
+    justify-content: space-between;    
+    padding: 10px;;
+
+}
+
+.nav__item-container{
+    display: flex;
+
+}
+
+.nav__item{
+    font-size: var(--nav-link);
+    color: white;
+    font-weight: var(--bold);
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;    
+}
+
+/*#endregion NAV*/
+
+/*#region AddLesson*/
+.form-container{
+    max-width: 50%;
+    margin: 0px auto;
+
+}
+
+.form-add-lesson{
+
+
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+}
+
+.form__container-group{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 25px 20px;
+}
+
+.form__label{
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    padding: 10px;
+
+}
+
+/*#endregion addLesson*/

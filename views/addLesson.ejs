@@ -1,0 +1,32 @@
+<%-include('partials/header', {title: 'nouvelle leçon'}); %>
+<div class="form-container">
+    <form class="form-add-lesson" action="" method="post">
+        <!-- nom de la leçon -->
+        <div class="form__container-group">
+            <label for="lesson_name" class="form__label">Titre de la leçon</label>
+            <input type="text" name="lesson_name" class="form__input">
+        </div>        
+    
+        <!-- choix dutype de leçon -->
+        <div class="form__container-group">
+            <label class="form__label" for="subject">Selectionner le sujet de cours</label>
+            <select name="subject" id="subject">                
+                <% for(subject of subjects) { %>
+                    <option value= "<%= subject.id %>" > <%= subject.lesson_name %> </option>
+                <%}%>
+            </select>
+        </div>
+    
+        <!-- le cours au complet -->
+        <div class="form__container-group">
+            <label for="data" class="form__label">Tapper le contenu du code au format html</label>
+            <textarea name="data" class="form__input"></textarea>
+    
+        </div>  
+        
+        <input type="submit" value="enregistrer le cours">
+    </form>
+</div>
+
+
+<%-include('partials/footer'); %>

@@ -1,0 +1,550 @@
+
+<%- include ('partials/header',{title:javascript}); %>
+  <div class="stackedit__html"><h1 id="logic">Logic</h1>
+<h3 id="egalité-différence-stricte">Egalité différence stricte</h3>
+
+<table>
+<thead>
+<tr>
+<th><strong>egalité</strong></th>
+<th><strong>difference</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>===</td>
+<td>!==</td>
+</tr>
+</tbody>
+</table><h3 id="if--et-if-else">if  et if else</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span> 
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="switch">Switch</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+<span class="token keyword">switch</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">case</span> a <span class="token punctuation">:</span>
+	<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">case</span> b <span class="token punctuation">:</span>
+	<span class="token function">myFunc2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">case</span> c <span class="token punctuation">:</span>
+	<span class="token function">myFunc3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+	<span class="token function">myFunc4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="les-boucles">Les boucles</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	n<span class="token operator">++</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">let</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">do</span><span class="token punctuation">{</span>
+	n<span class="token operator">++</span>
+<span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	consoloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> my_array <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+my_array<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">,</span>table<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`l'item est </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> item <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> et l'index </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> index <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>item =&gt; l’élément du tableau actuellement analysé<br>
+index =&gt; la position&gt; de l’élément actuellement<br>
+table =&gt; l’ensemble du tableau</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> my_array <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+		name<span class="token punctuation">:</span><span class="token string">"xxx"</span><span class="token punctuation">,</span>
+		age<span class="token punctuation">:</span> <span class="token string">"xxx"</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+		name<span class="token punctuation">:</span><span class="token string">"xxx"</span><span class="token punctuation">,</span>
+		age<span class="token punctuation">:</span> <span class="token string">"xxx"</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">let</span> element <span class="token keyword">of</span> my_array <span class="token punctuation">)</span><span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>boucler sur un objet</strong></p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span>  myObject <span class="token operator">=</span> <span class="token punctuation">{</span>foo<span class="token punctuation">:</span> <span class="token string">"hello"</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">"world"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">let</span> index <span class="token keyword">in</span> myObject<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> index <span class="token operator">+</span> “<span class="token punctuation">:</span>” <span class="token operator">+</span> myObject<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>console =  foo : hello<br>
+console = bar : world</p>
+</blockquote>
+<h1 id="quelques-notions">Quelques notions</h1>
+<p><strong>setTimeout</strong></p>
+<blockquote>
+<p>permets de déclencher une fonction dans le futur (le temps est exprimé en milliseconde)</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span> code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>time_milliSeconde<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span> code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>time_milliSeconde<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p><strong>isNaN()</strong></p>
+<blockquote>
+<p><strong>I</strong>s  <strong>N</strong>ot a <strong>N</strong>umber vérifier si une donnée est au format text.</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isNan</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p><strong>Number() , parseInt()</strong></p>
+<blockquote>
+<p>permets de forces la donnée en format numérique</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">let</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+<span class="token function">Number</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> or <span class="token function">parseInt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+</code></pre>
+<h1 id="les-fonctions">Les fonctions</h1>
+<p><strong>Forcer une variable au format numérique: Number(number), parseInt(number)</strong></p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">function</span> <span class="token function">name_of_func</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	 
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">function</span> <span class="token function">name_of_func</span><span class="token punctuation">(</span>param <span class="token operator">=</span> Y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	 
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>param est un paramètre avec une valeur par default</p>
+</blockquote>
+<blockquote>
+<p>fonction anonyme ne portant pas de nom</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">myFunction</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>Fonction dans une variable</p>
+</blockquote>
+<h1 id="queleques-méthodes-intéressante">Queleques méthodes intéressante</h1>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+<span class="token comment">/* trier un tableau */</span> 
+myArray<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> a <span class="token punctuation">,</span>b <span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> a<span class="token punctuation">.</span>element_compare <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBefore</span><span class="token punctuation">(</span> b<span class="token punctuation">.</span>element_compare<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span> a<span class="token punctuation">.</span>element_compare <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isAfter</span><span class="token punctuation">(</span> b<span class="token punctuation">.</span>element_compare<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  
+<span class="token comment">/* trouver un valeur dans un tableau d’objet */</span> 
+<span class="token keyword">const</span> result <span class="token operator">=</span> myArray<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span> element <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>data <span class="token operator">===</span> element_compare<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Autre facon de l'écrire */</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> myArray<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span> element <span class="token operator">=&gt;</span> element<span class="token punctuation">.</span>data <span class="token operator">===</span> element_compare<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="object">Object</h1>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> myObject <span class="token operator">=</span> <span class="token punctuation">{</span>
+	name <span class="token punctuation">:</span> <span class="token string">"cyrille"</span><span class="token punctuation">,</span>
+	lastName <span class="token punctuation">:</span> “cade”
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* convertir en tableau les clefs d'un objet*/</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> object<span class="token punctuation">.</span><span class="token function">Keys</span><span class="token punctuation">(</span>myObject<span class="token punctuation">)</span> 
+<span class="token operator">=</span> <span class="token punctuation">[</span>‘name’<span class="token punctuation">,</span>’lastName’<span class="token punctuation">]</span>
+
+<span class="token comment">/* convertir en array les valeur d'un objet */</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> object<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span>myObject<span class="token punctuation">)</span> 
+<span class="token operator">=</span> <span class="token punctuation">[</span>‘cyrille’<span class="token punctuation">,</span>’cade’<span class="token punctuation">]</span>
+</code></pre>
+<h1 id="module">Module</h1>
+<blockquote>
+<p>Objet javascript pour organiser son code.<br>
+On crée un fichier js par module ayant chacun un nom différent</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token punctuation">{</span>
+	name<span class="token punctuation">:</span><span class="token string">'xxxx'</span><span class="token punctuation">,</span>
+	mail<span class="token punctuation">:</span><span class="token string">'hello@yahoo.fr'</span><span class="token punctuation">,</span>  
+
+	myFunction <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token operator">...</span>code <span class="token operator">...</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+	myFunctionBis <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token operator">...</span>code<span class="token operator">...</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+	init <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		app<span class="token punctuation">.</span><span class="token function">myFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Un module est composé de:</p>
+<ul>
+<li>
+<p><strong>propriétés</strong></p>
+<blockquote>
+<p>Une propriété possède une clef et d’une valeur</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">name<span class="token punctuation">:</span><span class="token string">'xxxx'</span><span class="token punctuation">,</span>
+mail<span class="token punctuation">:</span><span class="token string">'hello@yahoo.fr'</span><span class="token punctuation">,</span>  
+</code></pre>
+</li>
+<li>
+<p><strong>méthodes</strong>.</p>
+<blockquote>
+<p>Un méthode est composée d’une clef et d’une fonction</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">myFunction <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span>  
+</code></pre>
+</li>
+</ul>
+<p><strong>pour appeler une propriété:</strong></p>
+<blockquote>
+<p>module_name.property_name</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">app<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+app<span class="token punctuation">.</span>mail<span class="token punctuation">;</span>
+</code></pre>
+<p><strong>pour appeler un méthode</strong></p>
+<blockquote>
+<p>module_name.method_name</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">app<span class="token punctuation">.</span><span class="token function">myFunction</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">myFunctionBis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Initialiser un application</strong></p>
+<blockquote>
+<p>Contient l’appel des méthodes nécessaire à l’initialisation d’une<br>
+application. C’est l’unique fonction que l’on peut trouver à la racine<br>
+du fichier js.</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">app<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="manipulation-du-dom-document-object-model">Manipulation du DOM (Document Object Model)</h1>
+<h3 id="récupération-élément-du-dom">Récupération élément du DOM:</h3>
+<p><strong>appendChild</strong></p>
+<blockquote>
+<p>ajoute un htmlElement à un parent</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> childrenElement<span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'children'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> model <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'model'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+model<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>childrenElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>getElementById</strong></p>
+<blockquote>
+<p>récupération d’un élément par id</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> model <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'model'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>querySelector</strong></p>
+<blockquote>
+<p>récupération du 1er élément par sélecteur CSS</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> model <span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>querySelectorAll</strong></p>
+<blockquote>
+<p>récupération en Array de tous les éléments par sélecteur CSS</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> modelArray <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>createElement</strong></p>
+<blockquote>
+<p>création d’un élément HTML</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> model <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="propriétés-des-élément-html">Propriétés des élément HTML:</h3>
+<blockquote>
+<p>écrase les anciennes class et ajoute “class_red”</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">model<span class="token punctuation">.</span>className<span class="token operator">=</span>”class_red”
+</code></pre>
+<hr>
+<p><strong>classList</strong><br>
+permet la manipulation des class HTML</p>
+<ul>
+<li><strong>add</strong>
+<blockquote>
+<p>ajoute la class “class” à l’élément</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">model<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+</li>
+<li><strong>remove</strong>
+<blockquote>
+<p>supprime la class “class” de l’élément</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">model<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+</li>
+<li><strong>toggle</strong>
+<blockquote>
+<p>ajoute une classe non présente ou supprime une classe si déjà présente</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">model<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">toggle</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+</li>
+<li><strong>replace</strong>
+<blockquote>
+<p>remplace une classe par une autre</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">model<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<p><strong>model.innerHTML</strong></p>
+<blockquote>
+<p>insert un text HTML dans un elementHtml</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'ul_id'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'&lt;li&gt; xxxxx&lt;/li&gt;'</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>model.innerText</strong></p>
+<blockquote>
+<p>insert un text non HTML” xxxxx ” dans un élément</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>button_id<span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Valider'</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>remove htmlElement</strong></p>
+<blockquote>
+<p>On peut supprimer l’intérieur d’un elementHtml ainsi que les<br>
+eventListener</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+element<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* autre méthode */</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>firstChild<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	element<span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<p><strong>dataset</strong></p>
+<blockquote>
+<p>Permets de rajouter des données supplémentaire dans un elementHtml</p>
+</blockquote>
+<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>people</span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>person<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-age"3"</span>
+  <span class="token attr-name">data-number-children</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span>
+  <span class="token attr-name">data-city</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>toulouse<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>people</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'person'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token string">'32'</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>numberChildren<span class="token operator">=</span><span class="token string">'3'</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>city <span class="token operator">=</span> <span class="token string">'auterive'</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>javascript : htmlElement.dataset.nomDeLaVariable et  html =  data-nom-de-la-variable</p>
+</blockquote>
+<hr>
+<p><strong>setAttribute</strong></p>
+<blockquote>
+<p>Modification d’un attribut</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'mail_input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'placeholder'</span> <span class="token punctuation">,</span> <span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'submit_input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'type'</span> <span class="token punctuation">,</span> <span class="token string">'submit'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>style</strong></p>
+<blockquote>
+<ul>
+<li>accès au propriété CSS d’un htmlElement</li>
+<li>On remplace les ‘-’ de la propriété CSS par une MAJUSCULE :<br>
+exemple <strong>background-position-x</strong> devient  <strong>backgroundPositionX</strong></li>
+</ul>
+</blockquote>
+<h1 id="addeventlistner">AddEventListner</h1>
+<ul>
+<li>
+<p>les  eventListner possèdent un param nommé <strong>event</strong></p>
+</li>
+<li>
+<p>on peut récupérer l’élément Html origine grâce a <strong>target</strong> qui est present dans <strong>event</strong></p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> elementHtml <span class="token operator">=</span> event<span class="token punctuation">.</span>target
+</code></pre>
+</li>
+<li>
+<p>un contenu d’un élément html avec <strong>event.target.value</strong></p>
+</li>
+<li>
+<p>l’event remonte de l’enfant vers le parent et peut donc déclencher l’événement parent</p>
+</li>
+</ul>
+<p><strong>DOMContentLoaded</strong></p>
+<blockquote>
+<p>Permets de charger un fichier JS après le chargement des fichier html</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>init<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<p><strong>click</strong></p>
+<blockquote>
+<p>action du clic sur un htmlElement</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> btnElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+btnElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span> <span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span>code<span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* autre facon */</span>
+btnElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span> <span class="token punctuation">,</span> myFunction <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>keypress</strong></p>
+<blockquote>
+<p>action sur une touche</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> bodyElement<span class="token operator">=</span>document<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+body<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keypress'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>event est l’événement déclenché par keypress<br>
+<strong>const keyPress = event.key</strong> récupération de la touche appuyé</p>
+</blockquote>
+<p>document.addEventListener(‘keyup’,(e)=&gt;…</p>
+<pre class=" language-javascript"><code class="prism  language-javascript">document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keydown'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token keyword">switch</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">case</span> <span class="token string">'ArrowRight'</span><span class="token punctuation">:</span>
+		<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">case</span> <span class="token string">'ArrowLeft'</span><span class="token punctuation">:</span>
+		<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">case</span> <span class="token string">'ArrowUp'</span><span class="token punctuation">:</span>
+		<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+		
+		<span class="token keyword">case</span> <span class="token string">'ArrowDown'</span><span class="token punctuation">:</span>
+		<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>change</strong></p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span>  rangeElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'range'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+rangeElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token operator">...</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>submit</strong></p>
+<blockquote>
+<p>soumission d’un formulaire FORM<br>
+a associer avec l’action <strong>preventDefault</strong></p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> formElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'myForm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+formElement <span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>stopPropagation</strong></p>
+<blockquote>
+<p>empêcher une événement de remonter vers le parent et de descendre vers l’enfant</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> btnElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>“id”<span class="token punctuation">)</span><span class="token punctuation">;</span>
+btnElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+event<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token operator">...</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>preventDefault</strong></p>
+<blockquote>
+<p>empêcher l’action par défaut de s’exécuter<br>
+pour IE rajouter <strong>return false</strong></p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">const</span> formElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'myForm'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+formElement<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token operator">...</span>code <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="js-doc">JS DOC</h1>
+<p>Permes de préciser le contenu d’une fonction</p>
+<p><strong>@param {Number} param</strong></p>
+<p><strong>@param {string} [param=“YY”]</strong></p>
+<blockquote>
+<p>paramètre avec une valeur par défaut</p>
+</blockquote>
+<p><strong>@return {number}</strong></p>
+<blockquote>
+<p>retour d’une fonction</p>
+</blockquote>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+<span class="token comment">/**
+* Ajout d'offre de vente
+* @param  {Number}  number
+* @param  {string}  text
+* @returns { Number}
+*/</span>
+<span class="token keyword">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span>number <span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+	<span class="token keyword">return</span> x
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>type de paramatere de disponible:</strong><br>
+Exemple de type disponible: Number,  string ,  event, array&lt;number,string….&gt;, htmlElement…</p>
+</div>
+<%- include ('partials/footer'); %>
