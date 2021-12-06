@@ -1,6 +1,6 @@
 <%-include('partials/header', {title: 'nouvelle leçon'}); %>
 <div class="form-container">
-    <form class="form-add-lesson" action="" method="post">
+    <form class="form-add-lesson" action="/add/lesson" method="post" enctype="multipart/form-data" >
         <!-- nom de la leçon -->
         <div class="form__container-group">
             <label for="lesson_name" class="form__label">Titre de la leçon</label>
@@ -17,6 +17,14 @@
             </select>
         </div>
     
+         <!-- choix dutype de leçon -->
+         <div class="form__container-group">
+            <label class="form__label" for="file-lesson">Selectioner votre fichier</label>
+            <input type="file" name="file-lesson" id="">
+            </select>
+        </div>
+
+        
         <!-- le cours au complet -->
         <div class="form__container-group">
             <label for="data" class="form__label">Tapper le contenu du code au format html</label>
