@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-undef
-const dataMapper = require('../dataMapper');
-
+const {Lesson} = require('../models/index');
 const mainController = {
 
     homePage :(req,res)=>{
@@ -48,22 +47,14 @@ const mainController = {
 
     getLessonAvailibility : (req,res,next)=>{
         
-        dataMapper.getLesson((err,data)=>{
-
-            if(!err){     
-                
-                req.session.lessons = data.rows; 
-                res.locals.data= data.rows
-                console.log(req.session);  
-                next();
-            }
-            else{
-                
-                next();
-            }            
+        Lesson.findAll().then((data)=>{
+            req.session.lessons = data;
+            next();
+        }).catch((err)=>{
+            console.log(err);
+            next();
         });
-   
-
+      
     },
 
 

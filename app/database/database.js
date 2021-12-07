@@ -1,5 +1,5 @@
 const pg = require('pg');
-/*Connection à partir des données .env*/
+// /*Connection à partir des données .env*/
 const client = new pg.Client();
 
 client.connect((err)=>{

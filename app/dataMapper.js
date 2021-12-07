@@ -37,8 +37,17 @@ const dataMapper = {
      */
     getLesson : (callback)=>{
 
+   
         const query = 'SELECT * FROM lesson;'
-        database.query(query,callback);       
+        database.query(query,(err,result)=>{
+
+            if(!err){
+                return callback(result.rows);
+            }
+            console.log('ffff')
+            throw new Error('error : ' + err);
+
+        });       
 
     }
 

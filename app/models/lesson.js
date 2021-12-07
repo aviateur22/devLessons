@@ -1,7 +1,14 @@
 const sequelize = require('../client');
 const {DataTypes,Model} = require('sequelize');
 
-class User extends Model{
+class Lesson extends Model{
 
 }
-module.exports = User;
+Lesson.init({
+    title:DataTypes.STRING
+},
+{
+    sequelize,
+    tableName:'lesson'
+})
+module.exports = Lesson;
