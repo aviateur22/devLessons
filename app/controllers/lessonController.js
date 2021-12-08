@@ -16,22 +16,19 @@ const lessonController = {
                     if(file.mimetype === 'application/pdf'){
                         const info = req.body.description;
                         const result = await awsUploadFile(file);
-                        console.log(result.Key);
-
-                        const lesson = {
-                            title: 'my Lesson',  
-                            
-                        };
-                        
+                        console.log(result.Key);                
                         
                         Lesson.create({
-                               lesson,                
-                            content:
-                                {file_url: result.Key}
-                            
+                            title:'dddd',
+                            thematic_id:1,
+                            user_id:10,
+                            content_id:1,
+                        content:[{
+                            file_url : result.Key
+                        }]
                         },
                         {
-                            include:['content']
+                            include:['author','content']
                         }).then((data)=>{
                             res.send(data);
 

@@ -1,11 +1,9 @@
 const sequelize = require('../client');
 const {DataTypes,Model} = require('sequelize');
 
-class Lesson extends Model{
-
-}
+class Lesson extends Model{}
 Lesson.init({
-    title:DataTypes.STRING
+    title : DataTypes.STRING
 },
 {
     sequelize,
