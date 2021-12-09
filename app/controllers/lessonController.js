@@ -19,7 +19,7 @@ const lessonController = {
                         console.log(result.Key);                
                         
                         Lesson.create({
-                            title:'dddd',
+                            title:'ddd',
                             thematic_id:1,
                             user_id:10,
                             content_id:1,

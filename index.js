@@ -1,5 +1,6 @@
 const express = require('express');
-const session = require('express-session');
+const initSession = require('./app/middleware/sessionMiddleware');
+const localsMiddleware = require('./app/middleware/localsMiddleware')
 require('dotenv').config();
 const router = require('./app/router');
 const app= express();
@@ -10,27 +11,9 @@ app.set('view engine','ejs');
 app.set('views','views');
 app.use(express.static('assets'));
 
-app.use(session({
-    secret: 'fffgjfdfs!',
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-        secure: false,
-        maxAge: (1000*60*60) // ça fait une heure
-    }
-}));
+app.use(initSession());
+app.use(localsMiddleware)
 
-/**
- * Middleware pour tableau
- */
-app.use((req,res,next)=>{
-
-    if(!req.session.lessons){
-        console.log('create lessons array')
-        req.session.lessons=[];
-    }
-    next(); 
-});
 
 
 app.use(router);

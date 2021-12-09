@@ -1,10 +1,22 @@
 // eslint-disable-next-line no-undef
-const {Lesson} = require('../models/index');
+const {Lesson ,Thematic} = require('../models/index');
 const mainController = {
 
     homePage :(req,res)=>{
 
         res.render('home');
+    },
+
+    loginPage : (req,res)=>{
+
+        res.render('login');
+
+    },
+
+    signupPage : (req,res) =>{
+
+        res.render('signup')
+
     },
 
     classPage:(req,res)=>{
