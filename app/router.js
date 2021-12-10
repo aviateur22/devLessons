@@ -27,9 +27,13 @@ router.route('/login')
     .get(mainController.loginPage)
     .post(usercontroller.loginAction);
 
+/** */
 router.route('/signup')
     .get(mainController.signupPage)
     .post(usercontroller.signupAction);
+
+/** */    
+router.get('/logout', usercontroller.logout);
 
 /** */
 router.get('/404',mainController.pageNotFound);

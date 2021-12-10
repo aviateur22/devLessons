@@ -18,26 +18,31 @@ const lessonController = {
                         const result = await awsUploadFile(file);
                         console.log(result.Key);                
                         
-                        Lesson.create({
-                            title:'ddd',
-                            thematic_id:1,
-                            user_id:10,
-                            content_id:1,
+                       const lesson = await Lesson.create({
+                            title:'22',                           
+                            user_id:2,
+                         
                         content:[{
                             file_url : result.Key
-                        }]
+                        }],
+
+                        thematicList:[{
+                            
+                            depend:{
+                                selfGranted: false
+                            }   
+                        }],
                         },
                         {
-                            include:['author','content']
-                        }).then((data)=>{
-                            res.send(data);
-
-                        }).catch((err)=>{
-
-                            res.status(505).send(err);
-
-                        });                       
-                    
+                            include:['author','content','thematicList']
+                        });
+                        
+                        
+                        if(lesson){
+                            
+                            console.log(lesson.dataValues.id);
+                        }
+                        res.status(200).send('retour' + lesson.dataValues.id);
                     }
         
                 }

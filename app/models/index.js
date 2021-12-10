@@ -38,14 +38,20 @@ Lesson.belongsTo(Content,{
 });
 
 
-Lesson.belongsTo(Thematic,{
-    foreignKey:'thematic_id',
-    as : 'thematic'
+Lesson.belongsToMany(Thematic,{
+    as : 'thematicList',
+    through:'depend',
+    foreignKey:'lesson_id',
+    otherKey:'thematic_id'
+    
 });
 
-Thematic.hasMany(Lesson,{
-    foreignKey: 'thematic_id',
-    as : 'lessons'
+Thematic.belongsToMany(Lesson,{
+    as : 'lessonList',
+    through: 'depend',
+    foreignKey:'thematic_id',
+    otherKey :'lesson_id'
+    
 
 });
 module.exports = {User,Lesson,Thematic,SubCategory,Content};

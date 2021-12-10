@@ -20,9 +20,17 @@
             <li><a class="nav__item" href="/learn/javascript">Javascript</a></li>
             <li><a class="nav__item" href="/learn/nodejs">NodeJS</a></li>
             <li><a class="nav__item" href="/learn/express">Express</a></li>
-            <li><a class="nav__item" href="/login">Se connecter</a></li>
-            <li><a class="nav__item" href="/signup">Inscription</a></li>
-            <li><a class="nav__item" href="/add/lesson">Ajouter une leçon</a></li>
+
+            <% if (!session.user) { %>
+                <li><a class="nav__item" href="/login">Se connecter</a></li>
+                <li><a class="nav__item" href="/signup">Inscription</a></li>
+                <% } else { %>
+                    <li><a class="nav__item" href="/admin/account"><%= session.user.login %></a></li>
+                    <li><a class="nav__item" href="/add/lesson">Nouvelle lesson</a></li>
+                    <li><a class="nav__item" href="/logout">Se deconnecter</a></li>
+            <% } %>
+            
+            
         </div>       
     </ul>
 </nav>

@@ -1,3 +1,44 @@
 <%-include('partials/header', {title: 'inscription'}); %>
 
+<div class="form-container">
+
+ 
+    <form class="form" action="" method="post">
+
+        <% if (locals.error) {%>
+
+            <div class="alert error">
+              <h2 class="alert--text"><%=locals.error %></h2>
+            </div>
+      
+          <%}%>
+
+
+          <div class="form__title-container">
+            <h2 class="form__title-text">Inscrits toi </h2>
+          </div>
+
+        <!--pseudo -->
+        <div class="form__container-group">
+            <label for="login" class="form__label">Ton pseudo</label>
+            <input placeholder="ton pseudo" type="text" name="login" class="form__input value=<%=body.login%>">
+        </div> 
+
+        <!-- email -->
+        <div class="form__container-group">
+            <label for="mail" class="form__label">Ton email</label>
+            <input placeholder="email" type="mail" name="mail" class="form__input value=<%=body.mail%>">
+        </div>        
+    
+        <!-- mot de passe -->
+        <div class="form__container-group">
+            <label class="form__label" for="password">Ton mot de passe</label>
+            <input placeholder="password" type="password" name="password" class="form__input">
+        </div>
+    
+        
+        <input class="button--submit" type="submit" value="S'inscrire">
+    </form>
+</div>
+
 <%-include('partials/footer'); %>

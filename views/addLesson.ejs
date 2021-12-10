@@ -1,6 +1,12 @@
 <%-include('partials/header', {title: 'nouvelle leçon'}); %>
 <div class="form-container">
-    <form class="form-add-lesson" action="/add/lesson" method="post" enctype="multipart/form-data" >
+    <form class="form" action="/add/lesson" method="post" enctype="multipart/form-data" >
+
+
+        <div class="form__title-container">
+            <h2 class="form__title-text">Ajout d'une lesson </h2>
+          </div>
+
         <!-- nom de la leçon -->
         <div class="form__container-group">
             <label for="lesson_name" class="form__label">Titre de la leçon</label>

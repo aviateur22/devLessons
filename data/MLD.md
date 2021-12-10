@@ -1,5 +1,7 @@
 User(id,email,password)
 Thematic(id,name)
 SubCategory(id,name,#thematic_id)
-Lesson(id,title,#thematic_id, #subcategory_id,#user_id,#content_id)
+Lesson(id,title,#subcategory_id,#user_id,#content_id)
 Content(id,fileUrl)
+Depend(#lesson_id , #thematic_id)
+

@@ -1,7 +1,7 @@
 :root{
 
     --title: 4rem;
-    --nav-link : 1.5rem;
+    --nav-link : 1.2rem;
     --small-siez : 1rem;
     --middle-size : 1.5rem;
     --big-size : 2rem;
@@ -9,7 +9,7 @@
     --black : 900;
 }
 
-/*#region NAV*/
+/*#region Nav*/
 
 .nav{
 
@@ -23,7 +23,7 @@
     font-size: var(--title);
     color: white;
     text-transform: uppercase;
-    text-decoration: none;
+    text-decoration: none;  
 
 
 }
@@ -53,21 +53,42 @@
 
 /*#endregion NAV*/
 
-/*#region AddLesson*/
+/*#region Formulaire*/
+
 .form-container{
-    max-width: 50%;
+    max-width: 70%;
+    height: calc(100vh - 85px);
     margin: 0px auto;
 
 }
 
-.form-add-lesson{
-
-
+.form{
     display: flex;
     flex-direction: column;
+    align-items: center;
     max-width: 100%;
+    height: calc(100vh - 85px);
+    
+ 
 
 }
+
+.form__title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form__title-text{
+    font-size: var(--big-size);
+    text-transform: uppercase;
+    font-weight: var(--black);
+    padding: 50px;
+
+}
+
+
 
 .form__container-group{
     display: flex;
@@ -83,4 +104,56 @@
 
 }
 
+.form__input{
+    border: 0.1px solid lightgray;
+    padding: 5px 0px;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+.button--submit{
+    max-width: 60%;
+    padding: 10px 20px;
+    background-color: transparent;
+    color:brown ;
+    border:1px solid gray;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: var(--bold);
+    font-size: var(--middle-size);
+
+}
 /*#endregion addLesson*/
+
+/*#region alert message*/
+.alert{
+    margin: 20px;
+    max-width: 100%;
+    border: 1px solid transparent;
+    border-radius: 10px;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.alert--text{
+    padding: 10px 20px;    
+    font-weight: 700; 
+    color: white;    
+    text-decoration: none;    
+    text-transform: uppercase;
+}
+
+.error{
+    background-color: rgb(189, 88, 88);
+}
+
+.success{
+    background-color: green;
+}
+/*#endregion alert message*/
+
+/*#region thematic navigation*/
+
+/*#endregion thematic navigation*/

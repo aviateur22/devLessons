@@ -5,6 +5,7 @@ class User extends Model{}
 
 User.init({
 
+    login : DataTypes.STRING,
     email :  DataTypes.STRING,
     password : DataTypes.STRING
 },{

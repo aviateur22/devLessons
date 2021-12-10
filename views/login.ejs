@@ -1,19 +1,47 @@
 <%-include('partials/header', {title :'connexion'}); %>
 
-<div class="container">
-    <form action="" method="post">
-        <div class="form-group">
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-              placeholder="Votre courriel" value="<%=body.email%>">
-            <label for="email">Votre courriel</label>
-          </div>
+<div class="form-container">
 
-          <div class="form-group">
-            <input type="password" class="form-control" id="password" name="password" aria-describedby="password"
-              placeholder="Votre mot de passse" value="<%=body.email%>">
-            <label for="password">Votre mot de passe</label>
-          </div>
-    </form>
+ 
+
+  <form class="form" action="/login" method="post" >
+
+    <% if (locals.error) {%>
+
+      <div class="alert error">
+        <h2 class="alert--text"><%=locals.error %></h2>
+      </div>
+
+    <%}%>
+
+    <% if (locals.success) {%>
+
+      <div class="alert success">
+        <h2 class="alert--text"><%=locals.success %></h2>
+      </div>
+
+    <%}%>
+
+    <div class="form__title-container">
+      <h2 class="form__title-text">Connecte toi </h2>
+    </div>
+
+    
+    <!-- nom de la leçon -->
+    <div class="form__container-group">
+        <label for="mail" class="form__label">Ton email</label>
+        <input placeholder="email" type="mail" name="mail" class="form__input" value="<%=body.mail%>">
+    </div>        
+
+    <!-- choix dutype de leçon -->
+    <div class="form__container-group">
+        <label class="form__label" for="password">Ton mot de passe</label>
+        <input placeholder="password" type="password" name="password" class="form__input">
+    </div>
+
+    
+    <input class="button button--submit" type="submit" value="Se connecter">
+</form>
 </div>
 
 <%-include('partials/footer'); %>
