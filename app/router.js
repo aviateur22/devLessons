@@ -32,6 +32,8 @@ router.route('/signup')
     .get(mainController.signupPage)
     .post(usercontroller.signupAction);
 
+router.get('/admin/account' , mainController.profilePage)
+
 /** */    
 router.get('/logout', usercontroller.logout);
 

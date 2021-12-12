@@ -2,7 +2,7 @@
 
     --title: 4rem;
     --nav-link : 1.2rem;
-    --small-siez : 1rem;
+    --small-size : 1rem;
     --middle-size : 1.5rem;
     --big-size : 2rem;
     --bold : 700;
@@ -121,9 +121,10 @@
     text-transform: uppercase;
     font-weight: var(--bold);
     font-size: var(--middle-size);
+    cursor: pointer;
 
 }
-/*#endregion addLesson*/
+/*#endregion Formulaire*/
 
 /*#region alert message*/
 .alert{
@@ -155,5 +156,37 @@
 /*#endregion alert message*/
 
 /*#region thematic navigation*/
+
+.thematic__container{
+    max-width: 80%;
+    margin: 0px auto;
+}
+
+.thematic__list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.thematic__li{
+    padding: 25px 0px;
+ 
+    
+}
+
+.thematic__item{
+    text-transform: uppercase;
+    font-weight: var(--bold);
+    text-decoration: none;
+    color: white;
+    font-size: var(--small-size);
+    border: 0.1px solid red;
+    border-radius: 10px;
+    padding: 7px 20px;
+    background-color: lightsalmon;
+  
+   
+}
 
 /*#endregion thematic navigation*/

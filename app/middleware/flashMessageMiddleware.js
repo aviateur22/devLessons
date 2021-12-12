@@ -8,11 +8,13 @@ const flashMessageMiddleware = (req ,res,next)=>{
     // verification données flash message  
     if(req.session.flashMessage.error){
         res.locals.error = req.session.flashMessage.error;
+        delete req.session.flashMessage.error
        
     }
 
     if(req.session.flashMessage.success){        
         res.locals.success = req.session.flashMessage.success;        
+        delete req.session.flashMessage.success
     }
 
 

@@ -1,4 +1,5 @@
 const User = require('./user');
+const Role = require('./role');
 const Lesson = require('./lesson');
 const Thematic = require('./thematic');
 const SubCategory = require('./subCategory');
@@ -8,6 +9,11 @@ Thematic.hasMany(SubCategory,{
     foreignKey: 'thematic_id',
     as:'subCategories'
 });
+
+SubCategory.belongsTo(Thematic,{
+    foreignKey:'thematic_id',
+    as:'thematics'
+})
 
 
 SubCategory.hasMany(Lesson,{
@@ -19,7 +25,7 @@ SubCategory.hasMany(Lesson,{
 Lesson.belongsTo(SubCategory,{
     foreignKey:'sub_category_id',
     as :'subCatergory'
-})
+});
 
 Lesson.belongsTo(User,{
     foreignKey:'user_id',
@@ -32,26 +38,32 @@ User.hasMany(Lesson,{
 
 });
 
+User.hasOne(Role,{
+    foreignKey:'role_id',
+    as :'roles',
+});
+
+Role.hasMany(User,{
+    foreignKey : 'role_id',
+    as :'roles'
+});
+
 Lesson.belongsTo(Content,{
     foreignKey:'content_id',
     as:'content'
 });
 
-
 Lesson.belongsToMany(Thematic,{
-    as : 'thematicList',
-    through:'depend',
+    as : 'thematics',
+    through:'lesson_thematic',
     foreignKey:'lesson_id',
     otherKey:'thematic_id'
-    
 });
 
 Thematic.belongsToMany(Lesson,{
-    as : 'lessonList',
-    through: 'depend',
+    as : 'lessons',
+    through: 'lesson_thematic',
     foreignKey:'thematic_id',
-    otherKey :'lesson_id'
-    
-
+    otherKey:'lesson_id'
 });
 module.exports = {User,Lesson,Thematic,SubCategory,Content};

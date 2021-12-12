@@ -2,9 +2,17 @@
 const {Lesson ,Thematic} = require('../models/index');
 const mainController = {
 
-    homePage :(req,res)=>{
+    homePage :async (req,res)=>{
 
-        res.render('home');
+        try{
+            const thematics = await Thematic.findAll();
+            res.render('home',{thematics});
+        }
+        catch(error){
+            console.log(error);
+            res.render('500', {error})
+        }
+        
     },
 
     loginPage : (req,res)=>{
@@ -41,20 +49,36 @@ const mainController = {
         }
     },
 
-    pageNotFound:(req,res)=>{
+    pageNotFound:async (req,res)=>{
 
-        res.status(404).render('404');     
+        try{
+            const thematics = await Thematic.findAll();
+            
+            console.log(thematics)
+            res.status(404).render('404',{thematics});
+        }
+        catch(error){
+            console.log(error);
+            res.render('500', {error})
+        }
     },
 
     pageUnknow : (req,res)=>{
         res.redirect('/404');
     },
 
-    addLessonPage : (req,res)=>{
-        subjects = req.session.lessons;
-        res.render('addLesson',{
-            subjects : subjects
-        });
+    addLessonPage :async (req,res)=>{
+        try{
+            const thematics = await Thematic.findAll();
+            //Mise en session des thematcs
+            req.session.thematics = thematics;
+            
+            res.render('addLesson',{thematics});
+        }
+        catch(error){
+            console.log(error);
+            res.render('500', {error})
+        }
     },
 
     getLessonAvailibility : (req,res,next)=>{
@@ -68,6 +92,11 @@ const mainController = {
         });
       
     },
+
+    profilePage : (req,res)=>{
+        res.render('profile')
+
+    }
 
 
 

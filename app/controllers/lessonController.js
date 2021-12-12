@@ -1,68 +1,83 @@
-const { now } = require('sequelize/dist/lib/utils');
-const {awsUploadFile,awsDownloadFile} = require('../aws/controllers/awsFileController')
-const {User,Lesson,Thematic,SubCategory,Content} = require('../models/index');
+const LessonAction = require('../src/LessonAction');
+
 const lessonController = {
 
-    
+
     /** */
     addLessonFile :async(req,res)=>{
 
-        try{
+        try{            
                 /**Fichier a envoyer dans AWS S3 */
                 const file = req.file;
+                const {lesson_name,thematic_id} = req.body;    
+                const user = req.session.user;                
 
-                if(file){
-
-                    if(file.mimetype === 'application/pdf'){
-                        const info = req.body.description;
-                        const result = await awsUploadFile(file);
-                        console.log(result.Key);                
-                        
-                       const lesson = await Lesson.create({
-                            title:'22',                           
-                            user_id:2,
-                         
-                        content:[{
-                            file_url : result.Key
-                        }],
-
-                        thematicList:[{
-                            
-                            depend:{
-                                selfGranted: false
-                            }   
-                        }],
-                        },
-                        {
-                            include:['author','content','thematicList']
-                        });
-                        
-                        
-                        if(lesson){
-                            
-                            console.log(lesson.dataValues.id);
-                        }
-                        res.status(200).send('retour' + lesson.dataValues.id);
+                if(file && lesson_name && thematic_id && user){
+                    
+                    const data = {
+                        file : file,
+                        lessonName : lesson_name,
+                        thematicId: thematic_id,
+                        user: user
                     }
+
+                    //Verification droit utilisateur
+                    if(user.role_id >=2 ){
+
+                        //Verification du type de fichier
+                        if(file){
+
+                            if(file.mimetype === 'application/pdf'){                 
+                                
+                                const lessonAction = new LessonAction(data);
+                                
+                                const awsBucket = await lessonAction.addAWSFile();
+                                    
+                                if(awsBucket === true){
+
+                                    const sqlDatabase = await lessonAction.AddSQLData();
+
+                                    if(sqlDatabase === true){
+
+                                    }
+                                    else{
+                                    
+                                        throw new Error('Erreur de sauvergarde postgreSql');      
+                                    }
+
+                                }else{
+                                    
+                                    throw new Error('Erreur de sauvergarde AWS');  
+
+                                };                              
+                               
+                            }                
+                        }
+                        else {
         
+                            throw new Error('Le fichier doit être de type PDF');        
+                        }
+
+                    }
+                    else{
+
+                        //Interdiction de mener l'action d'ecriture
+                        throw new Error('L\'utilsateur n\'a pas le droit de mener l\'action d\'ecriture');  
+
+                    }
                 }
                 else {
-
-                    res.status(505).send('Le fichier doit être de type PDF');
+                     //Interdiction de mener l'action d'ecriture
+                     throw new Error('Données manquante dans le formulaire');                   
 
                 }
             }
-        catch(err){
-
-            res.status(505).send('erreur dans le transfert de fichier ' + err);
+        catch(err){            
+            const thematics =  req.session.thematics;       
+            const error = err.message;
+            return res.status(505).render('addLesson',{thematics , error })
+            //return res.status(400).send({error:'400'})
         }
-
-        
-
-
-
-
-
     }
 
 }

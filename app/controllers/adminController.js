@@ -10,13 +10,15 @@ const adminController = {
             try {
 
                 dataMapper.createDataTable((result)=>{
-                    res.status(200).send(result);
+
+                   res.render('resetTable',{result});
 
                 });    
 
             } catch (error) {
 
-                res.status(505).send('Oupsss il ua une erreur')
+                console.error('ici' + error);
+                res.render('500',{error});
                 
             }
             

@@ -1,7 +1,13 @@
 <%-include('partials/header', {title: 'nouvelle leçon'}); %>
 <div class="form-container">
-    <form class="form" action="/add/lesson" method="post" enctype="multipart/form-data" >
+    <form id="newLesson" method="post" action='/add/lesson' class="form" enctype="multipart/form-data" >
+        <% if (locals.error) {%>
 
+            <div class="alert error">
+              <h2 class="alert--text"><%=locals.error %></h2>
+            </div>
+      
+          <%}%>
 
         <div class="form__title-container">
             <h2 class="form__title-text">Ajout d'une lesson </h2>
@@ -10,16 +16,18 @@
         <!-- nom de la leçon -->
         <div class="form__container-group">
             <label for="lesson_name" class="form__label">Titre de la leçon</label>
-            <input type="text" name="lesson_name" class="form__input">
+            <input type="text" name="lesson_name" class="form__input" value="<%= body.lesson_name %>">
         </div>        
     
         <!-- choix dutype de leçon -->
         <div class="form__container-group">
-            <label class="form__label" for="subject">Selectionner le sujet de cours</label>
-            <select name="subject" id="subject">                
-                <% for(subject of subjects) { %>
-                    <option value= "<%= subject.id %>" > <%= subject.lesson_name %> </option>
-                <%}%>
+            <label class="form__label" for="thematic_id">Selectionner le sujet de cours</label>
+            <select name="thematic_id" id="thematic_id">   
+                <% if(locals.thematics) { %>
+                    <% for(thematic of thematics) { %>
+                        <option value= "<%= thematic.id %>" > <%= thematic.category %> </option>
+                    <%}%>
+                <% } %>
             </select>
         </div>
     
@@ -30,16 +38,18 @@
             </select>
         </div>
 
+        <!-- le cours au complet
+<div class="form__container-group">
+    <label for="data" class="form__label">Tapper le contenu du code au format html</label>
+    <textarea name="data" class="form__input"></textarea>
+
+</div>  
+         -->
         
-        <!-- le cours au complet -->
-        <div class="form__container-group">
-            <label for="data" class="form__label">Tapper le contenu du code au format html</label>
-            <textarea name="data" class="form__input"></textarea>
-    
-        </div>  
         
         <input type="submit" value="enregistrer le cours">
     </form>
+    <script type="text/javascript" src="/js/main.js"></script>
 </div>
 
 
