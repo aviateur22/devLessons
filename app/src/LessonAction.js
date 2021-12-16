@@ -1,7 +1,6 @@
-const {User,Lesson,Thematic,SubCategory,Content} = require('../models/index');
+const {User,Lesson,Thematic,SubCategory,Content,LessonThematic} = require('../models/index');
 const {awsUploadFile,awsDownloadFile} = require('../aws/controllers/awsFileController');
-const { findOne } = require('../models/user');
-const { IoTSecureTunneling } = require('aws-sdk');
+
 
 class LessonAction {
 
@@ -75,9 +74,7 @@ class LessonAction {
             const lessonCreate = await Lesson.create(
                 {
                     title: this.#data.lessonName,
-                    user_id:this.#data.user.id,
-                  
-                                                         
+                    user_id:this.#data.user.id,          
                     content:[{
                         file_url :this.#fileKey
                     }]
@@ -86,16 +83,22 @@ class LessonAction {
                     include:['content']
                 }
             );
+            
+            if(lessonCreate){                
 
-            if(lessonCreate){
-                
-                console.log(`lesson sauvgardée : `);
-                console.log(lessonCreate.content);
-                
-                return true;
+                //Insertion lesson_id et thematic id dans la junction table
+                const lessonThematic = await LessonThematic.create({
+                    lesson_id: lessonCreate.dataValues.id,
+                    thematic_id:this.#data.thematicId
+                })
+
+                if(lessonThematic){                    
+                    return true;
+                }
+                return false;                
             }
 
-            return true;
+            return false;
         }
         catch(error){
 

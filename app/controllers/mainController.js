@@ -5,8 +5,11 @@ const mainController = {
     homePage :async (req,res)=>{
 
         try{
-            const thematics = await Thematic.findAll();
-            res.render('home',{thematics});
+            const thematics = await Thematic.findAll();                       
+            res.render('home',{
+                thematics :thematics ,
+                lessons:req.session.lessons
+            });
         }
         catch(error){
             console.log(error);
@@ -27,13 +30,18 @@ const mainController = {
 
     },
 
+    resetDatabasePage : (req,res) =>
+    {
+        res.render('resetDatabase');
+    },
+
     classPage:(req,res)=>{
 
         const subject = req.params.subject;
-        console.log(res.locals.data)
+       
 
         if(isNaN(subject)){
-            console.log(req.session);
+            
             const result = req.session.lessons.find(element => element.lesson_name.toLowerCase() === subject.toLowerCase());
 
             if(!result){
@@ -83,8 +91,32 @@ const mainController = {
 
     getLessonAvailibility : (req,res,next)=>{
         
-        Lesson.findAll().then((data)=>{
+        Lesson.findAll({
+            limit:6,
+            order:[['created_at','DESC']],
+            include:[
+                {association:'thematics'}
+            ]
+        }).then((data)=>{        
+            console.log(data)    
             req.session.lessons = data;
+            const lessons = data;
+
+
+            
+            if(lessons){
+                
+                for(const lesson of lessons){
+                    
+                    for(const thematic of lesson.thematics){
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+           
             next();
         }).catch((err)=>{
             console.log(err);

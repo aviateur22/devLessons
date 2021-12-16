@@ -16,9 +16,6 @@ const flashMessageMiddleware = (req ,res,next)=>{
         res.locals.success = req.session.flashMessage.success;        
         delete req.session.flashMessage.success
     }
-
-
-    
     next(); 
 
 }

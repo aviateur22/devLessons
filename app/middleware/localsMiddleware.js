@@ -9,7 +9,10 @@ const localsMiddleware = (req ,res,next)=>{
         res.locals.body = {};
     }
 
+    
     //Gestion session 
+    //Transfert à la vue l'objet session si existante
+    // ou  un objet vide si pas de ssion initiliasé
     if(req.session){        
         res.locals.session=req.session;
     }
@@ -17,9 +20,9 @@ const localsMiddleware = (req ,res,next)=>{
         res.locals.session={};        
     }
 
-     //Donner pour lister les lessons
-    if(!req.session.lessons){       
-    }
+    //  //Donner pour lister les lessons
+    // if(!req.session.lessons){       
+    // }
 
     //Stocke les thematics de cours
     if(!req.session.thematics){

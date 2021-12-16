@@ -2,29 +2,30 @@ const dataMapper = require('../dataMapper');
 
 const adminController = {
 
-    resetDatabase : (req,res)=>{
+    resetDatabaseAction : (req,res)=>{
 
-        token = req.params.token;
+        token = req.body.token;
 
         if(token === 'fghgg'){
             try {
 
                 dataMapper.createDataTable((result)=>{
-
-                   res.render('resetTable',{result});
+                   
+                   res.status(200).render('resetDatabase',{success:'Reset de la database effectuée'})
 
                 });    
 
             } catch (error) {
 
-                console.error('ici' + error);
-                res.render('500',{error});
+                console.error('resetDatabaseAction : ' + error);
+                res.status(505).render('resetDatabase',{error:'Il y a eu un problème'})
+                
                 
             }
             
 
         }else {
-            res.status(401).send('Mauvais token')
+            res.status(401).render('resetDatabase',{error:'Mauvais token'})
         }
 
     }

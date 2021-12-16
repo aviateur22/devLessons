@@ -1,0 +1,38 @@
+<%-include('partials/header', {title: 'reset de la base de données'}); %>
+
+<div class="form-container"> 
+
+    <form class="form" action="/admin/reset_database" method="post" >
+  
+      <% if (locals.error) {%>
+  
+        <div class="alert error">
+          <h2 class="alert--text"><%=locals.error %></h2>
+        </div>
+  
+      <%}%>
+  
+      <% if (locals.success) {%>
+  
+        <div class="alert success">
+          <h2 class="alert--text"><%=locals.success %></h2>
+        </div>
+  
+      <%}%>
+  
+      <div class="form__title-container">
+        <h2 class="form__title-text">Reset de la base de donnée </h2>
+      </div>
+  
+      
+      <!-- nom de la leçon -->
+      <div class="form__container-group">
+          <label for="token" class="form__label">Ton token</label>
+          <input placeholder="Ton token" type="password" name="token" class="form__input">
+      </div>        
+
+      <input class="button button--submit" type="submit" value="Reset">
+  </form>
+  </div>
+
+<%-include('partials/footer'); %>

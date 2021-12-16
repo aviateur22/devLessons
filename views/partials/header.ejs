@@ -24,6 +24,12 @@
                 <li><a class="nav__item" href="/login">Se connecter</a></li>
                 <li><a class="nav__item" href="/signup">Inscription</a></li>
 
+            <% } else if(Number(session.user.role_id) === 3) { %>
+                <li><a class="nav__item" href="/admin/reset_database">Reset database</a></li>                
+                <li><a class="nav__item" href="/admin/account"><%= session.user.login %></a></li>                
+                <li><a class="nav__item" href="/add/lesson">Nouvelle lesson</a></li>
+                <li><a class="nav__item" href="/logout">Se deconnecter</a></li>
+
             <% } else if(Number(session.user.role_id) === 2) { %>
                 
                 <li><a class="nav__item" href="/admin/account"><%= session.user.login %></a></li>

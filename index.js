@@ -13,6 +13,7 @@ app.set('views','views');
 app.use(express.static('assets'));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //init session
 app.use(initSession());

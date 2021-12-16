@@ -1,5 +1,5 @@
 const LessonAction = require('../src/LessonAction');
-
+const {Lesson ,Thematic,SubCategory} = require('../models/index');
 const lessonController = {
 
 
@@ -38,7 +38,9 @@ const lessonController = {
                                     const sqlDatabase = await lessonAction.AddSQLData();
 
                                     if(sqlDatabase === true){
-
+                                        const thematics =  req.session.thematics;  
+                                        const success ="Le fichier est sauvegardé"
+                                        return res.status(505).render('addLesson',{thematics , success })
                                     }
                                     else{
                                     
@@ -77,6 +79,30 @@ const lessonController = {
             const error = err.message;
             return res.status(505).render('addLesson',{thematics , error })
             //return res.status(400).send({error:'400'})
+        }
+    },
+
+    /** */
+    getSubcategory :async(req,res)=>{
+        
+        const thematicNumber = req.body;
+
+        if(thematicNumber.category){
+            const subcatgeories = await SubCategory.findAll({
+                where:{
+                    thematic_id : thematicNumber.category
+                },
+                include:['thematics']
+            });
+
+            if(subcatgeories){
+
+               res.status(200).send(subcatgeories);
+                
+            }
+        }
+        else {
+
         }
     }
 

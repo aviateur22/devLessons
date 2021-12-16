@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const adminMiddleware = require('./middleware/adminMiddleware');
 const mainController = require('./controllers/mainController');
 const adminController = require('./controllers/adminController');
 const lessonController = require('./controllers/lessonController');
@@ -13,15 +13,14 @@ const upload = multer({dest : 'uploads/'})
 /** */
 router.get('/',mainController.getLessonAvailibility, mainController.homePage);
 
-router.get('/admin/reset_database/:token',adminController.resetDatabase);
 /** */
 router.get('/learn/:subject',mainController.classPage);
 
 /** */
-router.get('/add/lesson', mainController.addLessonPage);
+router.get('/add/lesson',adminMiddleware.teacher,mainController.addLessonPage);
 
 /** */
-router.post('/add/lesson',upload.single('file-lesson'),lessonController.addLessonFile);
+router.post('/add/lesson', upload.single('file-lesson'),lessonController.addLessonFile);
 
 router.route('/login')
     .get(mainController.loginPage)
@@ -32,7 +31,13 @@ router.route('/signup')
     .get(mainController.signupPage)
     .post(usercontroller.signupAction);
 
-router.get('/admin/account' , mainController.profilePage)
+/** */
+router.route('/admin/reset_database')
+    .get(adminMiddleware.admin,mainController.resetDatabasePage)
+    .post(adminMiddleware.admin, adminController.resetDatabaseAction);
+
+/** */
+router.get('/admin/account', mainController.profilePage);
 
 /** */    
 router.get('/logout', usercontroller.logout);
@@ -40,7 +45,9 @@ router.get('/logout', usercontroller.logout);
 /** */
 router.get('/404',mainController.pageNotFound);
 
+//->Fetch
 
+router.post('/getSubCategory',lessonController.getSubcategory)
 
 
 module.exports = router;

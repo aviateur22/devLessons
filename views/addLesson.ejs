@@ -7,7 +7,17 @@
               <h2 class="alert--text"><%=locals.error %></h2>
             </div>
       
-          <%}%>
+        <%}%>
+
+        <!-- Message de réussite pour l'enregistrement du fichrer -->
+        <% if (locals.success) {%>
+
+            <div class="alert success">
+              <h2 class="alert--text"><%=locals.success %></h2>
+            </div>
+      
+        <%}%>
+      
 
         <div class="form__title-container">
             <h2 class="form__title-text">Ajout d'une lesson </h2>
@@ -25,9 +35,17 @@
             <select name="thematic_id" id="thematic_id">   
                 <% if(locals.thematics) { %>
                     <% for(thematic of thematics) { %>
-                        <option value= "<%= thematic.id %>" > <%= thematic.category %> </option>
+                        <option value= "<%= thematic.id %>" > <%= thematic.category.toUpperCase() %> </option>
                     <%}%>
                 <% } %>
+            </select>
+        </div>
+
+        <!-- choix de la sous category -->
+        <div class="form__container-group">
+            <label class="form__label" for="thematic_id">Vous pouvez choisir une sous-catégries dans la liste </label>
+            <select name="subcatgory" id="subcatgory">   
+             
             </select>
         </div>
     
@@ -47,7 +65,7 @@
          -->
         
         
-        <input type="submit" value="enregistrer le cours">
+        <input class="button button--submit" type="submit" value="enregistrer le cours">
     </form>
     <script type="text/javascript" src="/js/main.js"></script>
 </div>
