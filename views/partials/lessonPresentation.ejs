@@ -1,0 +1,29 @@
+<!-- Affichages des dernieres lessons de disponible -->
+    
+<section class="lesson__container">
+    <h3 class="lesson__container-title"><%= title %></h3>
+  
+    <div class="lesson__enum">
+        <% if(lessons.length === 0) {%>
+            <h3>Il n'y pas encore de lecon</h3>
+        <% } else { %>
+            <% for(const lesson of lessons) { %>              
+                <article class="lesson__article">
+                    <h4 class="lesson__name"><%= lesson.title %></h4>
+                    <% for(const thematic of lesson.thematics) { %>
+                        <h4 class="lesson__thematic"><%= thematic.category%></h4>
+                        <img class="lesson__img" src="<%= thematic.image_path %>" alt="">
+                    <% } %>
+                    <% if (lesson.subCatergory) { %>
+                        <% const subJson = lesson.subCatergory.toJSON() %>
+                            <h4 class="lesson__sub-category"><%= subJson.name %></h4>                 
+                    <% } %>
+                   
+                    <h4 class="lesson__date"><%= lesson.formatedDate %></h4>
+                    <h4 class="lesson__autor">Par <%= lesson.author.login %></h4>
+                    <a href="/lesson/<%= lesson.id%>" class="lesson__link">Lire la leçon</a>
+                </article>
+            <% } %>
+        <% } %>
+   </div>   
+</section>

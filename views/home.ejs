@@ -3,25 +3,11 @@
 <!-- access au thematic -->
 <%-include('partials/thematic', {thematics}); %>
 
-<!-- Affichages des dernieres lessons de disponible -->
-<section class="lesson__container">
-    <h3 class="lesson__container-title">Nos dernieres leçons</h3>
-    <% if(lessons.length === 0) {%>
-        <h3>Il n'y pas encore de lecon</h3>
-    <% } else { %>
-        <% for(const lesson of lessons) { %>
-            <article>
-                <h4 class="lesson__name"><%= lesson.titleName %></h4>
-                <% for(const thematic of lesson.thematics) { %>
-                    <h4 class="lesson__thematic"><%= thematic.category%></h4>
-                <% } %>
-               
-                <h4 class="lesson__date"><%= lesson.formatedDate %></h4>
-            </article>
-        <% } %>
-    <% } %>
-    
-</section>
+
+    <!-- Presentation leçons -->
+    <%-include('partials/lessonPresentation', {lessons : lessons , title: title}); %>
+
+
 
 
 

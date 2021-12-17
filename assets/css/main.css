@@ -2,11 +2,12 @@
 
     --title: 4rem;
     --nav-link : 1.2rem;
-    --small-size : 1rem;
+    --small-size : 0.8rem;
     --middle-size : 1.5rem;
     --big-size : 2rem;
     --bold : 700;
     --black : 900;
+    --font_family:'Georgia', 'serif';
 }
 
 /*#region Nav*/
@@ -33,7 +34,10 @@
     display: flex;
     align-items:center;
     justify-content: space-between;    
-    padding: 10px;;
+    padding: 20px;
+    height: 65px !important;
+    margin: 0px !important;
+    font-family: var(--font_family) !important;
 
 }
 
@@ -190,3 +194,92 @@
 }
 
 /*#endregion thematic navigation*/
+
+/*#region publish_lecon*/
+
+.lesson__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson__container-title{
+    font-size: var(--big-size);
+    text-transform: uppercase;
+    font-weight: var(--black);
+    padding: 25px 0px;
+    
+}
+
+.lesson__enum{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lesson__article{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 350px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 15px;
+    background-color: rgb(238, 238, 238);
+    border: 0.1px solid rgba(0,0,0,0.2)
+}
+
+.lesson__name{
+    padding: 10px 15px;
+    font-size: var(--big-size);
+    color: brown;
+    text-transform: uppercase;
+    font-weight: var(--bold);
+    text-align: center;
+}
+
+.lesson__thematic{
+    text-transform: uppercase;
+    font-weight: var(--black);
+    font-size: var(--middle-size);
+    text-align: center;
+}
+.lesson__img{
+    max-width: 100%;
+    border-radius: 100%;
+    width: 100px;
+}
+
+.lesson__sub-category{
+    text-transform: uppercase;
+    font-weight: var(--black);
+    font-size: var(--nav-link);
+    text-align: center;
+}
+
+.lesson__date{
+
+    text-transform: uppercase;
+    font-size: var(--small-size);
+    color: rgba(165, 161, 161,1);
+    font-weight: var(--black);
+}
+
+.lesson__autor{
+    text-transform: uppercase;
+    font-size: var(--small-size);
+    color: rgb(196, 193, 193);
+    font-weight: var(--bold);
+}
+.lesson__link{
+    text-decoration: none;
+    color: brown;
+    border:1px solid brown;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-size: var(--middle-size);
+    padding: 10px 15px;
+    margin: 10px;
+}
+/*#endregion publish_lecon*/

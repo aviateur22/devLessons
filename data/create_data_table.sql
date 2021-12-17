@@ -61,11 +61,11 @@ ALTER TABLE "user"
     ADD FOREIGN KEY ("role_id") REFERENCES "role" ("id");
 
 ALTER TABLE "sub_category"
-    ADD FOREIGN KEY ("thematic_id") REFERENCES "thematic" ("id");
+    ADD FOREIGN KEY ("thematic_id") REFERENCES "thematic" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "lesson"
-    ADD FOREIGN KEY("sub_category_id") REFERENCES "sub_category" ("id"),
-    ADD FOREIGN KEY("user_id") REFERENCES "user" ("id"),
-    ADD FOREIGN KEY("content_id") REFERENCES "content" ("id");
+    ADD FOREIGN KEY("sub_category_id") REFERENCES "sub_category" ("id") ON DELETE CASCADE,
+    ADD FOREIGN KEY("user_id") REFERENCES "user" ("id") ON DELETE CASCADE,
+    ADD FOREIGN KEY("content_id") REFERENCES "content" ("id") ON DELETE CASCADE;
 
 COMMIT;

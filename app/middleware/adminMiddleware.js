@@ -45,7 +45,7 @@ const adminMiddleware = {
     /**
      * Page reservé au admin
      */
-    admin : (req,res) =>{
+    admin : (req,res,next) =>{
 
         if(!req.session.user){
 

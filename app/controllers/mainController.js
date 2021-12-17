@@ -1,14 +1,63 @@
 // eslint-disable-next-line no-undef
+const { json } = require('express/lib/response');
 const {Lesson ,Thematic} = require('../models/index');
 const mainController = {
 
     homePage :async (req,res)=>{
 
         try{
+            let lessons = null;
+            let title = null;
+
+            if(req.session.filterLesson){
+
+                lessons = await Lesson.findAll({
+                    order:[['created_at','DESC']],
+                    include:[
+                        'subCatergory',
+                        'content',
+                        {
+                            association:'author',
+                            attributes:['login']                       
+                        },
+                        {
+                            association:'thematics',
+                            where:{
+                                'id': req.session.filterLesson.id 
+                            }
+                        },                
+                    ]
+                });
+
+                title = req.session.filterLesson.thematic 
+                delete req.session.filterLesson;
+              
+
+            }
+            else{
+                 lessons = await Lesson.findAll({
+                    
+                    limit:6,
+                    order:[['created_at','DESC']],
+                    include:[
+                        'subCatergory',
+                        'content',
+                        {
+                            association:'author',
+                            attributes:['login']
+                        },
+                        {association:'thematics'},                
+                    ]
+                });
+
+                title = 'Nos dernieres leçons';
+            }
+
             const thematics = await Thematic.findAll();                       
             res.render('home',{
                 thematics :thematics ,
-                lessons:req.session.lessons
+                lessons: lessons,
+                title : title
             });
         }
         catch(error){
@@ -33,29 +82,7 @@ const mainController = {
     resetDatabasePage : (req,res) =>
     {
         res.render('resetDatabase');
-    },
-
-    classPage:(req,res)=>{
-
-        const subject = req.params.subject;
-       
-
-        if(isNaN(subject)){
-            
-            const result = req.session.lessons.find(element => element.lesson_name.toLowerCase() === subject.toLowerCase());
-
-            if(!result){
-                
-                res.redirect('/404');   
-            }
-            else {
-                res.render('lesson',{
-                    title : subject
-                });
-
-            }            
-        }
-    },
+    },  
 
     pageNotFound:async (req,res)=>{
 
@@ -89,40 +116,44 @@ const mainController = {
         }
     },
 
-    getLessonAvailibility : (req,res,next)=>{
-        
-        Lesson.findAll({
-            limit:6,
-            order:[['created_at','DESC']],
-            include:[
-                {association:'thematics'}
-            ]
-        }).then((data)=>{        
-            console.log(data)    
-            req.session.lessons = data;
-            const lessons = data;
+    getLessonAvailibility : async (req,res,next)=>{
 
+        try {
 
+            const lessons = await Lesson.findAll({
+               
+                limit:6,
+                order:[['created_at','DESC']],
+                include:[
+                    'subCatergory',
+                    'content',
+                    {
+                        association:'author',
+                        attributes:['login']
+                    },
+                    {association:'thematics'},                
+                ]
+            });
             
             if(lessons){
+                req.session.lessons = lessons;   
                 
                 for(const lesson of lessons){
                     
-                    for(const thematic of lesson.thematics){
-                        
-                    }
                     
+                    if(lesson.subCatergory){
+                        const subJSON =lesson.subCatergory.toJSON();                        
+                    }
                     
                 }
             }
+            next();
+    
             
-           
+        } catch (error) {
+            console.log(error);
             next();
-        }).catch((err)=>{
-            console.log(err);
-            next();
-        });
-      
+        }        
     },
 
     profilePage : (req,res)=>{

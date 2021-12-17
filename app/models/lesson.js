@@ -10,7 +10,7 @@ class Lesson extends Model{
     }
 
     get titleName(){
-        return ('Titre de la lecon: ' + this.title )
+        return ('Titre: ' + this.title )
 
     }
 }

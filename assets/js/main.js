@@ -1,35 +1,28 @@
-
-const app = {
-
-    URI :'http://localhost:3000/',
-    subcategoryEndPoint :'getSubcategory',
+const app = {  
 
     thematicElement : document.getElementById('thematic_id'),
 
-    subCategoryElement : document.getElementById('subcatgory'),
+    subCategoryElement : document.getElementById('subcatgory_id'),
 
-    
-
-    /** */
+    /** 
+     * Recuperation des sous catégories de cours
+    */
     subcategoryLoading:async(e)=>{
         
         try {
-            app.subCategoryElement.innerHTML='';
-            const thematic =  e.target.value;            
-              
-            const setting = {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({'category' : thematic})
-            }
+            //reset du selecteur subcatégory
+            app.subCategoryElement.innerHTML='';            
 
+            //thematic id
+            const thematic =  e.target.value;
+            const dataSetting = {'category' : thematic};
 
-            const response = await fetch(app.URI+ app.subcategoryEndPoint, setting);
-            const data = await response.json();
+            //End point api
+            const subcategoryEndPoint = 'getSubcategory';
 
+            //fetch post subcategory
+            const data = await fetchApi.post(dataSetting, subcategoryEndPoint);
+           
             if (data){
 
                 data.forEach(element => {
@@ -38,19 +31,12 @@ const app = {
                     option.text = element.name.toUpperCase();
                     app.subCategoryElement.appendChild(option);
                     console.log(element.name);
-                  
               });
-
             }
-
-
-            
         } catch (error) {
 
-            console.log(error)
-            
-        }
-        
+            console.log(error);            
+        }        
     },
 
     /** */

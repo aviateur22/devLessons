@@ -12,9 +12,9 @@ INSERT INTO "user"("login","email","password","role_id") VALUES
 INSERT INTO "thematic" ("category","image_path") VALUES
 ('base de données','/images/database.png'),
 ('javascript','/images/javascript.png'),
-('NODEJS','/images/nodejs.png'),
-('HTML','/images/html.png'),
-('CSS','/images/css.png');
+('nodejs','/images/nodejs.png'),
+('html','/images/html.png'),
+('css','/images/css.png');
 
 INSERT INTO "sub_category" ("name","thematic_id") VALUES
 ('postgresql','1'),

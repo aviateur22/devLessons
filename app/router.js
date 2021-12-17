@@ -11,10 +11,10 @@ const multer = require('multer');
 const upload = multer({dest : 'uploads/'})
 
 /** */
-router.get('/',mainController.getLessonAvailibility, mainController.homePage);
+router.get('/', mainController.homePage);
 
 /** */
-router.get('/learn/:subject',mainController.classPage);
+router.get('/lessonsByThematic/:id',lessonController.getLessonsThematic);
 
 /** */
 router.get('/add/lesson',adminMiddleware.teacher,mainController.addLessonPage);
@@ -45,8 +45,11 @@ router.get('/logout', usercontroller.logout);
 /** */
 router.get('/404',mainController.pageNotFound);
 
-//->Fetch
+/** */
+router.get('/lesson/:id', lessonController.readLessonFile);
 
+//->Fetch
+/**Recuperartion des sous catégories de thematic */
 router.post('/getSubCategory',lessonController.getSubcategory)
 
 

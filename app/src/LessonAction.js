@@ -1,5 +1,5 @@
 const {User,Lesson,Thematic,SubCategory,Content,LessonThematic} = require('../models/index');
-const {awsUploadFile,awsDownloadFile} = require('../aws/controllers/awsFileController');
+const {awsUploadFile,awsGetFile} = require('../aws/controllers/awsFileController');
 
 
 class LessonAction {
@@ -45,7 +45,7 @@ class LessonAction {
 
            return({'error':'AWS - Erreur dans la sauvegarde du fichier'});
         }
-    }
+    }   
 
     /**
      * 
@@ -74,7 +74,8 @@ class LessonAction {
             const lessonCreate = await Lesson.create(
                 {
                     title: this.#data.lessonName,
-                    user_id:this.#data.user.id,          
+                    user_id:this.#data.user.id,     
+                    sub_category_id:this.#data.subcatgoryId,     
                     content:[{
                         file_url :this.#fileKey
                     }]

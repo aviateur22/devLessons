@@ -30,19 +30,32 @@ const awsFileController = {
      * @param {object} fileKeys - nom du fichier dans AWS S3 
      * @returns 
      */
-    awsGetFile : async (fileKeys)=>{
+    awsGetFile : async (fileKeys, callback)=>{
+
         try{
-            const  param={
-                Bucket:process.env.AWS_BUCKET_NAME,
-                Body:fileStream,
+           
+            const  params={
+                Bucket:process.env.AWS_BUCKET_NAME,           
                 Key:fileKeys
             };
-            return  s3.getObject(param).createReadStream();
+        
+            s3.getObject(params,  function(err, data) {
+                if (err){
+                    console.log(err, err.stack); 
+                    const error = {error :'erreur de chargement'}
+                    return callback(error);
+                } 
+                const text = data.Body.toString('utf-8'); 
+                callback(text);
+
+            });
+
+            //return s3.getObject(param).createReadStream();  
         }
         catch(err){
             console.log(err)
+            return {error : err}
         }
-
     }   
 
 }
