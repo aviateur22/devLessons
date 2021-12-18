@@ -1,6 +1,9 @@
 {
   "name": "my_lessons",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.17.5"
+  },
   "description": ">All my lessons on HTML / JS / NODEJS AND POSTGRESQL / EJS",
   "main": "inex.js",
   "scripts": {

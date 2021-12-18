@@ -1,7 +1,7 @@
 :root{
 
     --title: 4rem;
-    --nav-link : 1.2rem;
+    --nav-link : 1.0rem;
     --small-size : 0.8rem;
     --middle-size : 1.5rem;
     --big-size : 2rem;
@@ -188,7 +188,10 @@
     border: 0.1px solid red;
     border-radius: 10px;
     padding: 7px 20px;
+    width: 120px;
     background-color: lightsalmon;
+    display: inline-block;
+    text-align: center;
   
    
 }
@@ -198,7 +201,7 @@
 /*#region publish_lecon*/
 
 .lesson__container{
-    display: flex;
+    display: flex;   
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -209,12 +212,14 @@
     text-transform: uppercase;
     font-weight: var(--black);
     padding: 25px 0px;
+    text-align: center;
     
 }
 
 .lesson__enum{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
